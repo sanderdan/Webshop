@@ -1,0 +1,14 @@
+#contact {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+#contact img {
+    opacity: 0.5; 
+}
+#contact img:hover {
+    opacity: 1.0;
+}
+#contact img:active {
+    transform: scale(0.9);
+}

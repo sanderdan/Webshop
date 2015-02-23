@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>RIP Store</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--CSS-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/header.css" rel="stylesheet"/>
+        <link href="css/store.css" rel="stylesheet"/>
+        <link href="css/footer.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+        <div th:include="fragments/header :: header"/>
+
+        <div class="container" >
+            <form id="checklist">
+                <label>SKATEBOARDS</label>
+                <input id="skateboards" value="skateboards" type="checkbox"/>
+                <label>|</label>
+                <input id="wheels" value="wheels" type="checkbox"/>
+                <label>WHEELS</label>
+            </form>
+            <div class="row">
+                <div id="deckGrid">
+                    <div th:each="deck : ${decks}">
+                        <div class="col-lg-2 col-md-4 col-xs-6 thumb">
+                            <div th:id="${deck.id}" class="thumbnail store-thumbnail">
+                                <img th:src="@{${deck.imagePath}}"/>
+                                <button id="buy-button" class="buy-button" name="add" type="submit"> + </button>
+                                <div id="deckPrice" th:text="${deck.price}"></div>
+                                <div id="deckBrand" th:text="${deck.name}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="wheelGrid">
+                    <div th:each="wheel : ${wheels}">
+                        <div class="col-lg-2 col-md-4 col-xs-6 thumb">
+                            <div th:id="${wheel.id}" class="thumbnail store-thumbnail">
+                                <img th:src="@{${wheel.imagePath}}"/>
+                                <button id="buy-button" class="buy-button" name="add" type="submit"> + </button>
+                                <div id="wheelSize" th:text="${wheel.size}"></div>
+                                <div id="wheelPrice" th:text="${wheel.price}"></div>
+                                <div id="wheelBrand" th:text="${wheel.name}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:include="fragments/footer :: footer"/>
+        
+        <!--JavaScript-->
+        <script src="js/jquery-1.11.2.min.js" type="text/javascript"/>
+        <script src="js/bootstrap.min.js"/>
+        <script src="js/store.js" type="text/javascript"/>
+    </body>
+</html>

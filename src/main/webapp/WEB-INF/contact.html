@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>RIP</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--CSS-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/header.css" rel="stylesheet"/>
+        <link href="css/contact.css" rel="stylesheet"/>
+        <link href="css/footer.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+        <div th:include="fragments/header :: header"/>
+
+        <div class="container">
+            <h1>THE TEAM</h1>
+            <h3>FROM THE SHADOWS A CHAMPION EMERGES</h3>
+            <p>Forged in the fiery depths of douchness the team behind the best</p>
+            <p>skateshop ever emerges.</p>
+            <h3>MEET THE TEAM</h3>
+            <div id="team">
+                <div id="teammember">
+                    <img src="img/icons/skaters2.jpg"></img>
+                    <h4>SANDER DANIELSSON</h4>
+                    <a href="">DIRECTOR</a>
+                    <p>Sander make stuff for people.</p>
+                </div>
+                <div id="teammember">
+                    <img src="img/icons/skaters.jpg"></img>
+                    <h4>FREDRIK <em>"CAPITANO"</em> FORSMAN</h4>
+                    <a href="">PROJECT MANAGER</a>
+                    <p>Master of disaster.</p>
+                </div>
+                <div id="teammember">
+                    <img src="img/icons/skaters3.jpg"></img>
+                    <h4>ALEXANDER CLAESSON</h4>
+                    <a href="">EXECUTIVE PRODUCER</a>
+                    <p>A artist few can match.</p>
+                </div>  
+            </div>
+        </div>
+
+        <div th:include="fragments/footer :: footer"/>
+
+        <!--JavaScript-->
+        <script src="js/jquery-1.11.2.min.js" type="text/javascript"/>
+        <script src="js/bootstrap.min.js"/>
+        <script src="js/frontpage.js"/>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>RIP</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--CSS-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/order.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Your order was Successful!</h1>
+            <br/>
+            <ul class="order-info">
+                <li>First Name: <span th:text="${input[0]}"></span></li>
+                <li>Last Name: <span th:text="${input[1]}"></span></li>
+                <li>Address: <span th:text="${input[2]}"></span></li>
+                <li>City: <span th:text="${input[3]}"></span></li>
+                <li>Zip Code: <span th:text="${input[4]}"></span></li>
+                <li>Country: <span th:text="${input[5]}"></span></li>
+                <li>E-Mail: <span th:text="${input[6]}"></span></li>
+                <!--<li>Payment Method: <span th:text="${input[7]}"></span></li>-->
+                <li>Message: <span th:text="${input[7]}"></span></li>
+                <br/>
+                <li>Your Order:</li>
+                <ul th:each="product : ${cart}">
+                    <li class="co-products co-amount" >You ordered <span class="co-product co-prices" th:text="${product.value}"></span> x 
+                        <span class="co-product" th:text="${product.key.name}"></span> for a total amount of 
+                        <span class="co-products co-total" th:id="${product.key.id}"></span>
+                        <span class="co-product" th:text="${product.value} * ${product.key.price}"></span> kr</li>
+                </ul>
+                <br/>
+                <li>For a total of: 
+                    <span class="total-amount" th:text="${total}"></span> kr
+                </li>
+            </ul>
+            <br/>
+            <!--This button will clear the cart and refresh the page also,
+            send info to textfile "order"-->
+            <a href="store">
+                <button type="submit" class="btn btn-primary">Back to Shop</button>
+            </a>
+        </div>
+
+        <!--JavaScript-->
+        <script src="js/jquery-1.11.2.min.js" type="text/javascript"/>
+        <script src="js/bootstrap.min.js"/>
+    </body>
+</html>

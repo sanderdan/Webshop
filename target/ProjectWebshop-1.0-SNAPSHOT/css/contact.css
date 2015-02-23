@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+body {
+    font-family: 'Maven Pro', sans-serif;
+    overflow-y: scroll;
+}
+.container {
+    text-align: center;
+}
+h1 {
+    font-size: 50px;
+    color: #595959;
+}
+h3 {
+    color: #6faa44;
+    font-size: 20px;
+}
+h4 {
+    color: #666666;
+    font-size: 16px;
+}
+p {
+    color: #666666;
+    font-size: 14px;
+}
+#team {
+    display: inline-block;
+}
+#team img {
+    -webkit-filter: grayscale(100%);
+    display: inline-block;
+    box-shadow: 0 2px 2px #aaaaaa;
+    padding: 7px;
+    width: 300px;
+    height: 200px;
+}
+#teammember {
+    display: inline-block;
+    margin: 0 20px 140px 0;
+}
+#teammember a {
+    text-decoration: none;
+    color: #6faa44;
+    font-size: 14px;
+
+}
+#teammember img:hover {
+    -webkit-filter: grayscale(0%);
+}

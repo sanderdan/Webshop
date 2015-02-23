@@ -1,0 +1,120 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    overflow-y: scroll;
+}
+.buy-button {
+    outline: none;
+    bottom: 35px;
+    right: 5px;
+    position: absolute;
+    display:inline-block;
+    color: white;
+    background: rgb(28, 184, 65);
+    border: white 1px solid;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.buy-button:hover {
+    background: rgb(28, 150, 65);
+}
+.buy-button:focus {
+    background: rgb(28, 184, 65);
+}
+.buy-button:active {
+    color: rgba(200, 100, 0, 0.8); 
+    transform: scale(0.9);
+}
+#checklist {
+    margin-right: 40px;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+.row {
+    text-align: center;
+}
+#allproducts,
+#skateboards,
+#wheels {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#deckPrice {
+    opacity: 0.6;
+    background-color: black;
+    border-radius: 4px;
+    border: white 1px solid;
+    padding: 4px;
+    color:white;
+    position:absolute;
+    bottom: 35px;
+    left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+}
+#deckPrice:after {
+    content: " SEK";
+}
+#deckBrand {
+    border-radius: 4px;
+    font-size: 12px;
+    color: white; 
+    letter-spacing: -1px;  
+    background: rgba(200, 100, 0, 0.8);
+    text-align: center;
+    padding: 5px; 
+}
+#wheelSize:after {
+    content: " mm";
+}
+#wheelSize {
+    opacity: 0.8;
+    background-color: black;
+    border-radius: 4px;
+    border: white 1px solid;
+    padding: 4px;
+    color:white;
+    position:absolute;
+    bottom: 35px;
+    left: 65px;
+    font-size: 10px;
+    font-weight: bold;
+}
+#wheelPrice {
+    opacity: 0.6;
+    background-color: black;
+    border-radius: 4px;
+    border: white 1px solid;
+    padding: 4px;
+    color:white;
+    position:absolute;
+    bottom: 35px;
+    left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+}
+#wheelPrice:after {
+    content: " SEK";
+}
+#wheelBrand {
+    border-radius: 4px;
+    font-size: 12px;
+    color: white; 
+    letter-spacing: -1px;  
+    background: rgba(200, 100, 0, 0.8);
+    text-align: center;
+    padding: 5px; 
+}
+.store-thumbnail {
+    position:relative;
+    display:inline-block;
+}
+.store-thumbnail:hover {
+    background-color: #ccc;
+}

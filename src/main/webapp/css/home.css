@@ -1,0 +1,26 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+
+body {
+    font-family: 'Maven Pro', sans-serif;
+    overflow-y: scroll;
+}
+.carousel-caption h2{
+    color: white; 
+    letter-spacing: -2px;
+    background-color: transparent;
+    text-shadow: -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-weight: bold;
+}
+.homecontent{
+    text-align: center;
+}
+.page-header{
+    text-align: center;
+    font-size: 24px;
+}
+.home-thumb:hover {
+    transform: scale(1.1);
+}

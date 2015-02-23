@@ -1,0 +1,16 @@
+<div th:fragment="header">
+    <div class="header">
+        <ul id="menu">
+            <li class="menu-pages"><a href="/Webshop">HOME</a></li>
+            <li class="menu-pages"><a href="store">STORE</a></li>
+            <li class="menu-pages"><a href="contact">CONTACT</a></li>
+            <li class="menu-cart">
+                <a href="cart">
+                    <img src="img/carticon.png"/>
+                    <span th:text="${size}" id="counter" class="counter-badge"/>
+                </a>
+            </li>
+        </ul>
+        <hr/>
+    </div>
+</div>

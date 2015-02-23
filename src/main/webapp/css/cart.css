@@ -1,0 +1,135 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro);
+ 
+body {
+    font-family: 'Maven Pro', sans-serif;
+    overflow-y: scroll;
+}
+.order-controller {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+.co-header {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(204, 204, 204, .5);
+}
+.co-products {
+    padding: 5px;
+}
+.cart-table tr td {
+    font-weight: bold;
+}
+.co-img {
+    width: 75px;
+}
+.co-img img {
+    margin-left: 2px;
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, .5);
+    width: 75px;
+}
+.co-name {
+    padding-left: 15px;
+    width: 350px;
+}
+.co-price {
+    width: 60px;
+    text-align: right;
+}
+.co-prices {
+    display: inline-block;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: #000;
+    width: 35px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.co-amount {
+    width: 155px;
+    text-align: right;
+}
+.sub-button {
+    margin-left: 10px;
+    position: absolute;
+    display: inline-block;
+    outline: none;
+    background: #E40F1D;
+    border: none;
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: bold;
+}
+.sub-button a {
+    color: #FFFFFF;
+}
+.sub-button:focus {
+    background: #E40F1D;
+    border: none;
+    /*border: #E40F1D 1px solid;*/
+}
+.sub-button:active {
+    background: #972129;
+    border: none;
+    /*border: #972129 1px solid;*/
+    transform: scale(0.9);
+}
+.co-total {
+    width: 110px;
+    text-align: right;
+}
+.cart-table {
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(204, 204, 204, .5);
+}
+.total-border {
+    border-top: 1px solid rgba(204, 204, 204, .5);
+    border-right: 1px solid rgba(204, 204, 204, .5);
+    padding-top: 8px;
+    width: 375px;
+    height: 50px;
+    font-size: 16px;
+    display: inline-block;
+    background-color: #f5f5f5;
+}
+.total-name {
+    padding-top: 5px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.total-amount {
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid rgba(204, 204, 204, .5);
+    display: inline-block;
+    background-color: #FFFFFF;
+}
+.total-amount:after {
+    content: " kr";
+}
+.to-billing {
+    margin-top: 10px;
+    margin-right: 5px;
+    float: right;
+}
+.btn-primary {
+    background-color: #FA8704;
+    border-color: #FA8704;
+    color: #FFFFFF;
+}
+.btn-primary:focus {
+    background-color: rgba(200, 100, 0, 0.8);
+    border-color: rgba(200, 100, 0, 0.8);
+}
+.btn-primary:hover {
+    background-color: rgba(200, 100, 0, 0.8);
+    border-color: rgba(200, 100, 0, 0.8);
+    color: #FFFFFF;
+}
+.btn-primary:active,
+.btn-default:active {
+    transform: scale(0.9);
+}

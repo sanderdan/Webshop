@@ -1,0 +1,38 @@
+#menu {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 25px;
+}
+.menu-pages {
+    display: inline;
+    list-style-type: none;
+    padding: 20px;
+    opacity: 0.7;
+}
+.menu-pages a {
+    color: black;
+    opacity: 0.5;
+}
+.menu-pages a:hover {
+    opacity: 1.0;
+    text-decoration: none;
+    color: black;
+}
+.menu-cart {
+    display: inline;
+    list-style-type: none;
+    padding: 20px;
+}
+.menu-cart img {
+    /*margin-right: 20px;*/
+    height: 25px;
+}
+.counter-badge {
+    margin-top: 10px;
+    margin-left: -5px;
+    font-weight: bold;
+    display: inline-block;
+    position: absolute;
+    color: #FA8704;
+    font-size: 16px;
+}

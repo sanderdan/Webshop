@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>RIP Cart</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--CSS-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="css/header.css" rel="stylesheet" />
+        <link href="css/cart.css" rel="stylesheet" />
+        <link href="css/billing-modal.css" rel="stylesheet"/>
+        <link href="css/footer.css" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'/>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:include="fragments/header :: header"/>
+
+        <div class="container">
+            <div class="order-controller">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Please control before completing your order!</div>
+                    <table class="cart-table">
+                        <tr>
+                            <td class="co-header co-img"></td>
+                            <td class="co-header co-name">Product</td>
+                            <td class="co-header co-price">Price</td>
+                            <td class="co-header co-amount">Amount</td>
+                            <td class="co-header co-total">Total</td>
+                        </tr>
+                        <tr th:each="product : ${cart}" th:class="${productStat.odd}? 'odd'">
+                            <td class="co-products co-img"><img th:src="@{${product.key.imagePath}}"/></td>
+                            <td class="co-products co-name"><span class="co-product" th:text="${product.key.name}"></span></td>
+                            <td class="co-products co-price"><span class="co-product" th:text="${product.key.price}"></span> kr</td>
+                            <td class="co-products co-amount" ><div class="co-product co-prices" th:text="${product.value}"></div></td>
+                            <td class="co-products co-total" th:id="${product.key.id}" >
+                                <span class="co-product" th:text="${product.value} * ${product.key.price}"></span> kr
+                                <button class="sub-button" name="sub" type="submit"><a href="#">X</a></button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="total-border">
+                        <div class="total-name">The cost for all your products will be:</div>
+                        <div class="total-amount" th:text="${total}"></div>
+                    </div>
+                    <div class="to-billing">
+                        <a href="cart" class="btn btn-default" id="clear-button">Clear</a>
+                        <button href="#billing" data-toggle="modal" type="submit" class="btn btn-primary">Purchase</button>
+                    </div>
+                </div>
+            </div>
+            <!-- BILLING MODAL -->
+            <div class="modal fade" id="billing" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form class="form-horizontal" role="form" method="post" action="order">
+                            <div class="modal-header">
+                                <h3>Billing Information</h3>
+                            </div>
+                            <div class="modal-body">
+                                <!-- NAMES -->
+                                <div class="form-group">
+                                    <label for="customer-firstname" class="col-sm-3 control-label">First name:</label>
+                                    <div class="col-sm-7">
+                                        <input name="firstName" type="text" maxlength="25" 
+                                               class="form-control" id="customerFirstName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-lastName" class="col-sm-3 control-label">Last name:</label>
+                                    <div class="col-sm-7">
+                                        <input name="lastName" type="text" maxlength="25" 
+                                               class="form-control" id="customerLastName" />
+                                    </div>
+                                </div>
+                                <!-- LOCATION -->
+                                <div class="form-group">
+                                    <label for="customer-address" class="col-sm-3 control-label">Address:</label>
+                                    <div class="col-sm-7">
+                                        <input name="address" type="text" maxlength="25" 
+                                               class="form-control" id="customerAddress" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-city" class="col-sm-3 control-label">City:</label>
+                                    <div class="col-sm-7">
+                                        <input name="city" type="text" maxlength="25" 
+                                               class="form-control" id="customerCity" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-zipcode" class="col-sm-3 control-label">Zip Code:</label>
+                                    <div class="col-sm-3">
+                                        <input name="zipcode" type="text" maxlength="8" 
+                                               class="form-control" id="customerZipCode" onkeypress='validateInt(event)' />
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer-country" class="col-sm-3 control-label">Country:</label>
+                                    <div class="col-sm-7">
+                                        <input name="country" type="text" maxlength="25" 
+                                               class="form-control" id="customerCountry" />
+                                    </div>
+                                </div>
+                                <!-- E-MAIL -->
+                                <div class="form-group">
+                                    <label for="customer-email" class="col-sm-3 control-label">Email</label>
+                                    <div class="col-sm-7">
+                                        <input name="mail" type="email" class="form-control" id="customerEmail" />
+                                    </div>
+                                </div>
+                                <!-- PAYMENT METHOD -->
+                                <div class="form-group">
+                                    <label for="customer-paymeth" class="col-sm-3 control-label">Payment Method</label>
+                                    <div class="col-sm-7">
+                                        <p class="pay-alt">
+                                            <a class="payMeth" href="#"><i class="fa fa-cc-paypal fa-3x"></i></a>
+                                            <a class="payMeth" href="#"><i class="fa fa-cc-visa fa-3x"></i></a>
+                                            <a class="payMeth" href="#"><i class="fa fa-cc-mastercard fa-3x"></i></a>
+                                            <a class="payMeth" href="#"><i class="fa fa-cc-amex fa-3x"></i></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- MESSAGE -->
+                                <div class="form-group">
+                                    <label for="customer-message" class="col-sm-3 control-label">Message</label>
+                                    <div class="col-sm-7">
+                                        <textarea id="textArea" name="message" maxlength="250" class="form-control" 
+                                                  rows="6" placeholder="Only 250 chars allowed" 
+                                                  onfocus="this.placeholder = ''"
+                                                  onblur="this.placeholder = 'Only 250 chars allowed'"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- CLOSE - SEND BUTTONS -->
+                            <div class="modal-footer">
+                                <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                                <button type="submit" class="btn btn-primary">Order</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:include="fragments/footer :: footer"/>
+
+        <!--JavaScript-->
+        <script src="js/jquery-1.11.2.min.js" type="text/javascript"/>
+        <script src="js/bootstrap.min.js"/>
+        <script src="js/cart.js"/>
+    </body>
+</html>
